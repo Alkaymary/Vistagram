@@ -8,6 +8,7 @@ Public Class VistaGram
     'INstagram:@Ak.coder
     'Telegram:@Ko_Tools
     'Created On 2020/4/20 10:30:42 AM
+    'Update On 2020/5/22 12:30:00 PM
 #Region "VistaGram(InstagramAPI) API"
 #Region "Main Variables"
     Private Shared MainCookies, LogCookies As New CookieContainer()
@@ -33,7 +34,7 @@ Public Class VistaGram
                     .Proxy = New WebProxy(Proxy)
                 End If
             End With
-            Dim byteArray As Byte() = Encoding.UTF8.GetBytes("username=" & UserName & "&password=" & Password)
+            Dim byteArray As Byte() = Encoding.UTF8.GetBytes("username=" & UserName & "&enc_password=#PWD_INSTAGRAM_BROWSER:0:1589682409:" & Password)
             request.ContentLength = byteArray.Length
             Dim dataStream As Stream = request.GetRequestStream()
             dataStream.Write(byteArray, 0, byteArray.Length)
@@ -77,7 +78,7 @@ Public Class VistaGram
                     .Proxy = New WebProxy(Proxy)
                 End If
             End With
-            Dim byteArray As Byte() = Encoding.UTF8.GetBytes("email=" + Email + "&password=" & Password & "&username=" & UserName & "&first_name=" & Full_Name & "&month=3&day=5&year=2000&seamless_login_enabled=1&tos_version=row")
+            Dim byteArray As Byte() = Encoding.UTF8.GetBytes("email=" & Email & "&enc_password=#PWD_INSTAGRAM_BROWSER:0:1589682409:" & Password & "&username=" & UserName & "&first_name=" & Full_Name & "&seamless_login_enabled=1&tos_version=row")
             request.ContentLength = byteArray.Length
             Dim dataStream As Stream = request.GetRequestStream()
             dataStream.Write(byteArray, 0, byteArray.Length)
